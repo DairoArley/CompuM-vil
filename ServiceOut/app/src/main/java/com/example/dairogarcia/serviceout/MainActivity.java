@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 
@@ -67,15 +68,6 @@ public class MainActivity extends AppCompatActivity {
                 filter);
     }
 
-    /**
-     * Método onClick() personalizado para {@code turn_intent_service}
-     * @param v View presionado
-     */
-    public void onClickTurnIntentService(View v) {
-        Intent intent = new Intent(this, ProgressIntentService.class);
-        intent.setAction(Constants.ACTION_RUN_ISERVICE);
-        startService(intent);
-    }
 
     @Override
     protected void onDestroy() {
@@ -94,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
             switch (intent.getAction()) {
                 case Constants.ACTION_RUN_SERVICE:
                     memoryUsageText.setText(intent.getStringExtra(Constants.EXTRA_MEMORY));
+                    Toast.makeText(getApplicationContext(), "ffff", Toast.LENGTH_SHORT).show();
                     break;
 
                 case Constants.ACTION_RUN_ISERVICE:
